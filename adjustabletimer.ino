@@ -14,12 +14,12 @@ int state = 0; /*
 2 = time up
 3 = off
 */ 
-bool buttons [] = {false, false, false, false};
+bool buttons [] = {false, false, false, false, false};
 
 void setup() {
     b.begin();
     b.setBrightness(50);
-    b.playNote("G4",8); // playing a note here works fine
+    b.playNote("G4",8);
 }
 
 void loop(){
@@ -74,7 +74,6 @@ void loop(){
                 state = 2;
                 onLEDs = 0;
                 b.setBrightness(100);
-               // b.playNote("G4",16);// playing a note here causes the photon to crash. not sure why.
             }
             else{
                 onLEDs = ceil(((startTime + (chronoSet*30000)) - millis())/30000)+1;
@@ -112,7 +111,7 @@ void loop(){
                 if (flashing)
                 {
                     b.allLedsOn(255,0,0);
-                    b.playNote("G4",16);// playing a note here causes the photon to crash. not sure why.
+                    b.playNote("G4",16);
                     flashing = false;
                 }
                 else
